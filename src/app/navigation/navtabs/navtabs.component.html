@@ -1,0 +1,28 @@
+<div class="navtabs-container">
+  <nav mat-tab-nav-bar mat-tab-nav-bar fxFlex fxLayout fxLayoutAlign="center center">
+    <a mat-tab-link href="#"
+     routerLinkActive #home="routerLinkActive"
+     [active]="home.isActive" style="color:white">
+     Home
+     </a>
+
+     <a mat-tab-link routerLink="/shop"
+     routerLinkActive #shop="routerLinkActive"
+     [active]="shop.isActive" style="color:white">
+     Shop
+     </a>
+
+    
+
+     <a mat-tab-link routerLink="/contact"
+     routerLinkActive #contact="routerLinkActive"
+     [active]="contact.isActive" style="color:white">
+     Contact
+     </a>
+
+   
+  </nav>
+</div>
+
+
+

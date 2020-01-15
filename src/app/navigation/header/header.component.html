@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <div>
+    <button mat-icon-button (click)="onToggleOpenSidenav()">
+      <mat-icon style="color:white">menu</mat-icon>
+    </button>
+  </div>
+  <div class="logo-container" style="color:white">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <img class="logo" src="assets/images/theahotel.png">
+    </div>
+
+  </div>
+
+
+
+  <div >
+    <div fxLayout="row" fxLayoutAlign="center center">
+
+
+  	<!-- shopping cart -->
+    <div class="shopping-cart" id="shopping-cart">
+      <a routerLink="/cart">
+        <div class="cart-icon d-inline-block"style="color:white">
+          <span class="icon_bag_alt"></span>
+        </div>
+        <div class="cart-info d-inline-block">
+          <p>
+            <!-- <span style="font-size:12px; color:white">
+              10 - items
+            </span> -->
+
+            <span *ngIf="data.cartItems" style="font-size:12px; color:white">{{ data.cartItems }} - items</span>
+          </p>
+        </div>
+      </a>
+      </div>
+    <!-- end of shopping cart -->
+
+
+    </div>
+
+  </div>
+
+
+
+
+</mat-toolbar>
