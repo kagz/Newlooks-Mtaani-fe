@@ -2,7 +2,7 @@
 
 @include mat-core();
 
-$thea-primary: (
+$newlook-primary: (
   50 : #ffffff,
   100 : #ffffff,
   200 : #ffffff,
@@ -35,7 +35,7 @@ $thea-primary: (
   )
 );
 
-$thea-accent: (
+$newlook-accent: (
   50 : #ffffff,
   100 : #ffffff,
   200 : #ffffff,
@@ -69,23 +69,23 @@ $thea-accent: (
 );
 
 
-$theahotel-primary: mat-palette($thea-primary, 700, 300, 900);
-$theahotel-accent:  mat-palette($thea-accent, 500, 400, 700);
+$newlooks-primary: mat-palette($newlook-primary, 700, 300, 900);
+$newlooks-accent:  mat-palette($newlook-accent, 500, 400, 700);
 
-$theahotel-warn:    mat-palette($mat-red);
+$newlooks-warn:    mat-palette($mat-red);
 
-$theahotel: mat-light-theme($theahotel-primary, $theahotel-accent, $theahotel-warn);
+$newlooks: mat-light-theme($newlooks-primary, $newlooks-accent, $newlooks-warn);
 
 @import './app/navigation/navtabs/navtabs.component-theme.scss';
 
-@include angular-material-theme($theahotel);
+@include angular-material-theme($newlooks);
 
 // Navtabs component scss file
-@include navtabs-component-theme($theahotel);
+@include navtabs-component-theme($newlooks);
 
 
 ///////////////////////////////////////////////////////
-$thea-typography: mat-typography-config(
+$newlook-typography: mat-typography-config(
   $font-family:   'Rubik, sans-serif',
   $display-4:     mat-typography-level(112px, 112px, 300),
   $display-3:     mat-typography-level(56px, 56px, 400),
@@ -103,25 +103,98 @@ $thea-typography: mat-typography-config(
   $input:         mat-typography-level(inherit, 1.125, 400)
 );
 
-@include mat-base-typography($thea-typography);
+@include mat-base-typography($newlook-typography);
 
 // Override typography for a specific Angular Material components.
-@include mat-checkbox-typography($thea-typography);
+@include mat-checkbox-typography($newlook-typography);
 
 // Override typography for all Angular Material, including mat-base-typography and all components.
-@include angular-material-typography($thea-typography);
+@include angular-material-typography($newlook-typography);
 
-@include mat-core($thea-typography);
+@include mat-core($newlook-typography);
 
+// Put
+@mixin ct-responsive-svg-container($width: 100%, $ratio: $ct-container-ratio) {
+  display: block;
+  position: relative;
+  width: $width;
 
+  &:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: $ratio * 100%;
+  }
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
 
 // All our styles will go here
+
+/* loading style*/
+.loader {
+  margin: 0 auto;
+  width: 60px;
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-transform: translate3d(0, -50%, 0);
+  -moz-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+  text-align: center;
+  top: 50%;
+}
+
+.loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 2s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+//
 .mat-list-option:hover, 
 .mat-list-option.mat-list-item-focus, 
 .mat-nav-list .mat-list-item:hover, 
 .mat-nav-list .mat-list-item.mat-list-item-focus {
-  background-color: mat-color($theahotel-primary, 300);
-  color: mat-color($theahotel-primary, 900);
+  background-color: mat-color($newlooks-primary, 300);
+  color: mat-color($newlooks-primary, 900);
 }
 
 
@@ -1446,16 +1519,16 @@ a.single-sale-add-to-cart-btn {
 
 /*----------  04.1 Hero One ----------*/
 .hero-slider-one .hero-slider-item {
-  height: 800px;
+  height: 300px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; }
   @media only screen and (min-width: 1200px) and (max-width: 1499px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
     .hero-slider-one .hero-slider-item {
-      height: 600px; } }
+      height: 300px; } }
   @media only screen and (max-width: 767px) {
     .hero-slider-one .hero-slider-item {
-      height: 500px; } }
+      height: 300px; } }
 
 .hero-slider-one .slick-dots {
   position: absolute;
@@ -1593,7 +1666,7 @@ a.single-sale-add-to-cart-btn {
   -webkit-box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.1); }
   .hero-slider-two .hero-slider-item {
-    height: 510px;
+    height: 410px;
     background-repeat: no-repeat;
     background-position: 30% 100%;
     background-size: cover; }
@@ -3000,7 +3073,7 @@ a.single-sale-add-to-cart-btn {
         color: #4867AA; }
       .product-feature-details .social-share-buttons ul li a i.fa-google-plus {
         color: #DD5144; }
-      .product-feature-details .social-share-buttons ul li a i.fa-pinterest {
+      .product-feature-details .social-share-buttons ul li a i.fa-instagram {
         color: #BD081B; }
     .product-feature-details .social-share-buttons ul li:hover a {
       color: #fff; }
@@ -3012,7 +3085,7 @@ a.single-sale-add-to-cart-btn {
       background-color: #4867AA; }
     .product-feature-details .social-share-buttons ul li:hover a.google-plus {
       background-color: #DD5144; }
-    .product-feature-details .social-share-buttons ul li:hover a.pinterest {
+    .product-feature-details .social-share-buttons ul li:hover a.instagram {
       background-color: #BD081B; }
 
 .product-feature-details .pro-qty {

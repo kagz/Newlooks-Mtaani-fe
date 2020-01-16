@@ -9,7 +9,12 @@ import { RestApiService } from 'src/app/rest-api.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+  myReview = {
+    title: '',
+    description: '',
+    rating: 0,
+  };
+  btnDisabled = false;
 
   product: any;
 
@@ -18,42 +23,42 @@ export class ProductComponent implements OnInit {
     private data: DataService,
     private rest: RestApiService,
     private router: Router,
-  ) { }
+  ) {}
 
-  ngOnInit () {
+  ngOnInit() {
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`http://localhost:3030/api/v1/products/${res['slug']}`)
+        .get(`http://localhost:3030/api/product/${res['slug']}`)
         .then(data => {
-          data['success']
+          data
             ? (this.product = data['product'])
-            : this.router.navigate(['/shop']);
+            : this.router.navigate(['/']);
         })
         .catch(error => this.data.error(error['message']));
     });
   }
 
-  addToCart () {
+  addToCart() {
     this.data.addToCart(this.product)
       ? this.data.success('Product successfully added to cart.')
       : this.data.error('Product has already been added to cart.');
   }
 
-  async postReview () {
-    // this.btnDisabled = true;
-    // try {
-    //   const data = await this.rest.post('http://localhost:3030/api/review', {
-    //     productId: this.product._id,
-    //     title: this.myReview.title,
-    //     description: this.myReview.description,
-    //     rating: this.myReview.rating,
-    //   });
-    //   data['success']
-    //     ? this.data.success(data['message'])
-    //     : this.data.error(data['message']);
-    //   this.btnDisabled = false;
-    // } catch (error) {
-    //   this.data.error(error['message']);
-    // }
+  async postReview() {
+    this.btnDisabled = true;
+    try {
+      const data = await this.rest.post('http://localhost:3030/api/review', {
+        productId: this.product._id,
+        title: this.myReview.title,
+        description: this.myReview.description,
+        rating: this.myReview.rating,
+      });
+      data
+        ? this.data.success(data['message'])
+        : this.data.error(data['message']);
+      this.btnDisabled = false;
+    } catch (error) {
+      this.data.error(error['message']);
+    }
   }
 }

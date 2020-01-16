@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
             passwordConfirm: this.password1,
           },
         );
-        if (data['success']) {
+        if (data) {
           localStorage.setItem('token', data['token']);
           //await this.data.getProfile();
           this.data.success('Registration successful!');

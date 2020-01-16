@@ -1,18 +1,20 @@
 <mat-nav-list class="sidenav-list">
-  <a mat-list-item routerLink="/signin" (click)="onToggleClose()">
-    <mat-icon>input</mat-icon>
-    <span>Signin</span>
-  </a>
-  <a mat-list-item routerLink="/signup" (click)="onToggleClose()">
+
+  <!-- <a mat-list-item routerLink="/signup" (click)="onToggleClose()">
     <mat-icon>account_circle</mat-icon>
     <span>Signup</span>
-  </a>
-  <!-- <a mat-list-item routerLink="/cart" (click)="onToggleClose()">
+  </a> -->
+  <a mat-list-item routerLink="/cart" (click)="onToggleClose()">
     <mat-icon>shopping_cart</mat-icon>
     <span>my cart</span>
-  </a> -->
+  </a>
   <a mat-list-item routerLink="/myaccount" (click)="onToggleClose()">
     <mat-icon>settings</mat-icon>
     <span>my account</span>
   </a>
+  <a mat-list-item routerLink="/signin" (click)="onToggleClose()">
+    <mat-icon>lock_open</mat-icon>
+    <span>Signin</span>
+  </a>
+  <a mat-list-item routerLink="/signin"(click)="onToggleClose()" ><i class="fa fa-sign-out"></i> Logout</a>
 </mat-nav-list>

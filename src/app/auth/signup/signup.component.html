@@ -3,9 +3,10 @@
 	<div style="margin-top: 25px;">
 		<div class="container">
 			<div class="d-flex justify-content-center">
-				<app-message></app-message>
+			
 				<div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
-					<form action="#">
+						<app-message></app-message>
+					<form >
 
 						<div class="login-form">
 							<h4 class="login-title">Register</h4>
@@ -13,21 +14,21 @@
 							<div class="row">
 								<div class="col-md-12  mb-20">
 									<label>Full Name</label>
-									<input class="mb-0" type="text" placeholder="First Name" [(ngModel)]="name">
+									<input class="mb-0" type="text" placeholder="First Name"name="name" [(ngModel)]="name">
 								</div>
 							
 								<div class="col-md-12 mb-20">
 									<label>Email Address*</label>
-									<input class="mb-0" type="email" placeholder="Email Address" [(ngModel)]="email">
+									<input class="mb-0" type="email" placeholder="Email Address" name="email"[(ngModel)]="email">
 								</div>
 							
 								<div class="col-md-6 mb-20">
 									<label>Password</label>
-									<input class="mb-0" type="password" placeholder="Password"[(ngModel)]="password">
+									<input class="mb-0" type="password"name="password" placeholder="Password"[(ngModel)]="password">
 								</div>
 								<div class="col-md-6 mb-20">
 									<label>Confirm Password</label>
-									<input class="mb-0" type="password" placeholder="Confirm Password"[(ngModel)]="password1">
+									<input class="mb-0" type="password"name="password1" placeholder="Confirm Password"[(ngModel)]="password1">
 								</div>
 								<div class="col-8 mt-15">
 									<button class="register-button mt-0" (click)="register()" [disabled]="btnDisabled">Register</button>
@@ -135,7 +136,7 @@
 										<span class="icon_pin_alt"></span>
 									</div>
 									<div class="contact-info">
-										<p>Address: <span>Nairobi West , Nairobi </span></p>
+										<p>Address: <span>Roysambu , Nairobi </span></p>
 									</div>
 								</div>
 								
@@ -147,7 +148,7 @@
 										<span class="icon_mobile"></span>
 									</div>
 									<div class="contact-info">
-										<p>Phone: <span>+254-722-000-000</span></p>
+										<p>Phone: <span>+254-713-093-910</span></p>
 									</div>
 								</div>
 								
@@ -159,7 +160,7 @@
 										<span class="icon_mail_alt"></span>
 									</div>
 									<div class="contact-info">
-										<p>Email: <span>info@sprucesupport.com</span></p>
+										<p>Email: <span>info@newlooksmtaani.com</span></p>
 									</div>
 								</div>
 								

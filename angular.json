@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "theahotel": {
+    "newlooks": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/theahotel",
+            "outputPath": "dist/newlooks",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/theahotel.scss"
+              "src/newlooks.scss"
             ],
             "scripts": []
           },
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "theahotel:build"
+            "browserTarget": "newlooks:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "theahotel:build:production"
+              "browserTarget": "newlooks:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "theahotel:build"
+            "browserTarget": "newlooks:build"
           }
         },
         "test": {
@@ -96,7 +96,7 @@
         }
       }
     },
-    "theahotel-e2e": {
+    "newlooks-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "theahotel:serve"
+            "devServerTarget": "newlooks:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "theahotel:serve:production"
+              "devServerTarget": "newlooks:serve:production"
             }
           }
         },
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "theahotel"
+  "defaultProject": "newlooks"
 }

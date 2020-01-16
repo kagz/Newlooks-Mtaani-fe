@@ -9,9 +9,8 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
 
-  constructor(private router: Router, private data: DataService) {
-    this.data.cartItems = this.data.getCart().length;
-    // this.data.getProfile();
+  constructor() {
+
   }
 }
 

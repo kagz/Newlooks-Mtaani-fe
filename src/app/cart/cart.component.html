@@ -13,10 +13,11 @@
   </div>
 </div>
 
-
-    <div class="page-section section mb-50">
+<app-message></app-message>
+    <h3 *ngIf="!cartItems.length" class="display-2 text-center mt-5">Cart is Empty please shop</h3>
+    <div *ngIf="cartItems.length" class="page-section section mb-50">
       <div class="container">
-          <div class="row">
+          <div class="row" *ngFor="let item of cartItems; let i=index; trackBy: trackByCartItems;">
               <div class="col-12">
                   <form action="#">				
                       <!--=======  cart table  =======-->
@@ -38,40 +39,18 @@
                                       <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product01.jpg" class="img-fluid" alt="Product"></a></td>
                                       <td class="pro-title"><a href="#">Shoes fermentum</a></td>
                                       <td class="pro-price"><span>Ksh29.00</span></td>
-                                      <td class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></td> 
+                                      <td class="pro-quantity"><div class="pro-qty"><input type="number"  min="1" max="99" [(ngModel)]="quantities[i]"></div></td> 
                                       <td class="pro-subtotal"><span>Ksh29.00</span></td>
-                                      <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                      <td class="pro-remove"><a (click)="removeProduct(i, item)"><i class="fa fa-trash-o"></i></a></td>
                                   </tr>
-                                  <tr>
-                                      <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product02.jpeg" class="img-fluid" alt="Product"></a></td>
-                                      <td class="pro-title"><a href="#">Shirts</a></td>
-                                      <td class="pro-price"><span>Ksh30.00</span></td>
-                                      <td class="pro-quantity"><div class="pro-qty"><input type="text" value="2"></div></td>
-                                      <td class="pro-subtotal"><span>Ksh60.00</span></td>
-                                      <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                      <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product03.jpg" class="img-fluid" alt="Product"></a></td>
-                                      <td class="pro-title"><a href="#">Jersey</a></td>
-                                      <td class="pro-price"><span>Ksh25.00</span></td>
-                                      <td class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></td>
-                                      <td class="pro-subtotal"><span>Ksh25.00</span></td>
-                                      <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                  </tr>
-                                  <tr>
-                                      <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product04.jpg" class="img-fluid" alt="Product"></a></td>
-                                      <td class="pro-title"><a href="#">Dress</a></td>
-                                      <td class="pro-price"><span>Ksh11.00</span></td>
-                                      <td class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></td>
-                                      <td class="pro-subtotal"><span>Ksh11.00</span></td>
-                                      <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                  </tr>
+                              
+                                
+                                 
                               </tbody>
                           </table>
                       </div>
                       
-                      <!--=======  End of cart table  =======-->
-                      
+                 
                       
                   </form>	
                       
@@ -79,58 +58,7 @@
   
                       <div class="col-lg-6 col-12">
                           <!--=======  Calculate Shipping  =======-->
-<!--                           
-                          <div class="calculate-shipping">
-                              <h4>Calculate Shipping</h4>
-                              <form action="#">
-                                  <div class="row">
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <select class="nice-select">
-                                              <option>Bangladesh</option>
-                                              <option>China</option>
-                                              <option>country</option>
-                                              <option>India</option>
-                                              <option>Japan</option>
-                                          </select>
-                                      </div>
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <select class="nice-select">
-                                              <option>Dhaka</option>
-                                              <option>Barisal</option>
-                                              <option>Khulna</option>
-                                              <option>Comilla</option>
-                                              <option>Chittagong</option>
-                                          </select>
-                                      </div>
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <input type="text" placeholder="Postcode / Zip">
-                                      </div>
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <input type="submit" value="Estimate">
-                                      </div>
-                                  </div>
-                              </form>
-                          </div>
-                          
-                          <!--=======  End of Calculate Shipping  =======-->
-                          
-                          <!--=======  Discount Coupon  =======-->
-<!--                           
-                          <div class="discount-coupon">
-                              <h4>Discount Coupon Code</h4>
-                              <form action="#">
-                                  <div class="row">
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <input type="text" placeholder="Coupon Code">
-                                      </div>
-                                      <div class="col-md-6 col-12 mb-25">
-                                          <input type="submit" value="Apply Code">
-                                      </div>
-                                  </div>
-                              </form>
-                          </div>
-                           -->
-                       
+
                       </div>
   
                      
@@ -276,7 +204,7 @@
                   <span class="icon_mail_alt"></span>
                 </div>
                 <div class="contact-info">
-                  <p>Email: <span>info@sprucesupport.com</span></p>
+                  <p>Email: <span>info@newlooksmtaani.com</span></p>
                 </div>
               </div>
               

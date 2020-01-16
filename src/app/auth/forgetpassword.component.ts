@@ -35,7 +35,7 @@ export class ForgetpasswordComponent implements OnInit {
 
   }
 
-  async register () {
+  async forgetpassword () {
     this.btnDisabled = true;
     try {
       if (this.validate()) {
@@ -47,7 +47,7 @@ export class ForgetpasswordComponent implements OnInit {
 
           },
         );
-        if (data['success']) {
+        if (data) {
           // localStorage.setItem('token', data['token']);
           //await this.data.getProfile();
           this.data.success('Password reset Email was sent successful!');

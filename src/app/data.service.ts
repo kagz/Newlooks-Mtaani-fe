@@ -35,19 +35,19 @@ export class DataService {
     this.message = message;
   }
 
-  // async getProfile() {
-  //   try {
-  //     if (localStorage.getItem('token')) {
-  //       const data = await this.rest.get(
-  //         'http://localhost:3030/api/accounts/profile',
-  //       );
-  //       this.user = data['user'];
-  //       console.log(this.user);
-  //     }
-  //   } catch (e) {
-  //     this.error(e);
-  //   }
-  // }
+  async getProfile () {
+    try {
+      if (localStorage.getItem('token')) {
+        const data = await this.rest.get(
+          'http://localhost:3030/api/v1/users/me',
+        );
+        this.user = data;
+        console.log(this.user);
+      }
+    } catch (e) {
+      this.error(e);
+    }
+  }
 
   getCart () {
     const cart = localStorage.getItem('cart');

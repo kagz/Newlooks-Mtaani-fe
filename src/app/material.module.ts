@@ -8,7 +8,25 @@ import {
   MatListModule,
   MatTabsModule,
   MatGridListModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressBarModule,
+
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatCheckboxModule,
+
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatDialogModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatSnackBarModule,
+  MatExpansionModule,
+  MatRadioModule,
+  MatMenuModule
 } from '@angular/material';
 
 
@@ -22,7 +40,30 @@ import {
     MatListModule,
     MatTabsModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatMenuModule
   ],
   exports: [
     MatBadgeModule,
@@ -33,8 +74,31 @@ import {
     MatListModule,
     MatTabsModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatMenuModule
   ]
 })
 
-export class MaterialModule {}
+export class MaterialModule { }

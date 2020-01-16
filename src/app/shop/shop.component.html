@@ -26,56 +26,28 @@
 			<div class="row">
 				<div class="col-lg-3 order-2 order-lg-1">
 					<!--=======  sidebar area  =======-->
-					
-					<div class="sidebar-area">
-						<!--=======  single sidebar  =======-->
-						
-						<div class="sidebar mb-35">
-							<h3 class="sidebar-title">PRODUCT CATEGORIES</h3>
-							<ul class="product-categories">
-								
-								<li><a href="product-view.html">Shoes</a></li>
-								<li><a href="product-view.html">Tops</a></li>
-								<li><a href="product-view.html">Skirts</a></li>
-								<li><a href="product-view.html">Dresses</a></li>
-								<li><a href="product-view.html">Jackets</a></li>
-								<li><a href="product-view.html">Denims</a></li>
+					<div class="hero-side-category">
+						<!-- Category Toggle Wrap -->
+						<div class="category-toggle-wrap">
+							<!-- Category Toggle -->
+							<button class="category-toggle"> <span class="arrow_carrot-right_alt2 mr-2"></span> All Categories</button>
+						</div>
+
+						<!-- Category Menu -->
+						<nav class="category-menu">
+							<ul>
+							
+								<li><a  routerLink="/shop">Shoes Bales</a></li>
+								<li><a  routerLink="/shop">Tops Bales</a></li>
+								<li><a  routerLink="/shop">Skirts Bales</a></li>
+								<li><a  routerLink="/shop">Dresses Bales</a></li>
+								<li><a  routerLink="/shop">Jackets Bales</a></li>
+								<li><a  routerLink="/shop">Denims Bales</a></li>
+								<li><a  routerLink="/shop">Shiphones Bales</a></li>
 							
 							</ul>
-						</div>
-						
-						<!--=======  End of single sidebar  =======-->
-
-						<!--=======  single sidebar  =======-->
-						
-					
-						
-						<!--=======  End of single sidebar  =======-->
-
-						<!--=======  single sidebar  =======-->
-<!-- 						
-				
-						
-						<!--=======  End of single sidebar  =======-->
-
-						<!--=======  single sidebar  =======-->
-					
-						
-						<!--=======  End of single sidebar  =======-->
-
-						<!--=======  single sidebar  =======-->
-						
-						
-						
-						<!--=======  End of single sidebar  =======-->
-
-						<!--=======  single sidebar  =======-->
-						
-					
-						
-						<!--=======  End of single sidebar  =======-->
+						</nav>
 					</div>
-					
 					<!--=======  End of sidebar area  =======-->
 				</div>
 				<div class="col-lg-9 order-1 order-lg-2 mb-sm-35 mb-xs-35">
@@ -118,7 +90,7 @@
 								
 								<!--=======  End of Sort by dropdown  =======-->
 
-								<p class="result-show-message">Showing 1–12 of 41 results</p>
+								<!-- <p class="result-show-message">Showing 1–12 of 41 results</p> -->
 							</div>
 						</div>
 					</div>
@@ -132,60 +104,33 @@
 						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
 								<!--=======  Grid view product  =======-->
 								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product03.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a> -->
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Jackets</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh400.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
 								<!--=======  End of Grid view product  =======-->
 	
 								<!--=======  Shop list view product  =======-->
 								
 								<div class="gf-product shop-list-view-product">
 									<div class="image">
-										<a href="single-product.html">
+										<a routerLink="/product/{{ product.slug }}">
 											<span class="onsale">Available!</span>
 											<img src="assets/images/products/product03.jpg" class="img-fluid" alt="">
 										</a>
 										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
+											<a routerLink="/product/{{ product.slug }}" data-tooltip="View Bale" > <span class="icon_search"></span> </a>
 										</div>
 									</div>
 									<div class="product-content">
 										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
+											<a routerLink="/product/{{ product.slug }}">Original</a>,
+											<a routerLink="/product/{{ product.slug }}">Mtumba</a>
 										</div>
-										<h3 class="product-title"><a href="single-product.html">Jackets</a></h3>
+										<h3 class="product-title"><a routerLink="/product/{{ product.slug }}">chageet</a></h3>
 										<div class="price-box mb-20">
 											<span class="main-price">Ksh400.00</span>
 											<span class="discounted-price">Ksh300.00</span>
 										</div>
 										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
 										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
+											<a routerLink="/product/{{ product.slug }}" data-tooltip="View Bale"> <span class="icon_search"></span></a>
 											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
 											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
 					 -->
@@ -197,514 +142,6 @@
 							<!--=======  End of Shop list view product  =======-->
 							</div>
 	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product04.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-									
-									 -->
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Jeans</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh500.00</span>
-											<span class="discounted-price">Ksh400.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product04.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Jeans</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-									 -->
-									
-									
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product05.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-									 -->
-									
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Hoods</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh600.00</span>
-											<span class="discounted-price">Ksh500.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product05.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Hoods</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh500.00</span>
-											<span class="discounted-price">Ksh400.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-									
-									 -->
-									
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product06.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-									 -->
-									
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Shirts</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh250.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product06.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Shirts</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh250.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-									 -->
-									
-									
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product07.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										 -->
-										
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Official Shirts</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh400.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product07.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Official Shirts</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh400.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-									
-									 -->
-									
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product08.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										 -->
-										
-										
-										
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">T-Shirts</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh200.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product08.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">T-Shirts</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh200.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-										 -->
-										
-										
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product10.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-									 -->
-									
-									
-									
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Shoes</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh350.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product10.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Shoes</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh350.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-										
-										 -->
-										
-										
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
-	
-							<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-								<!--=======  Grid view product  =======-->
-								
-								<div class="gf-product shop-grid-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product11.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="cart.html" data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										 -->
-										
-										
-										
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Skirts</a></h3>
-										<div class="price-box">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-									</div>
-									
-								</div>
-								
-								<!--=======  End of Grid view product  =======-->
-	
-								<!--=======  Shop list view product  =======-->
-								
-								<div class="gf-product shop-list-view-product">
-									<div class="image">
-										<a href="single-product.html">
-											<span class="onsale">Available!</span>
-											<img src="assets/images/products/product11.jpg" class="img-fluid" alt="">
-										</a>
-										<div class="product-hover-icons">
-											<a href="#" data-tooltip="Quick view" data-toggle = "modal" data-target="#quick-view-modal-container"> <span class="icon_search"></span> </a>
-										</div>
-									</div>
-									<div class="product-content">
-										<div class="product-categories">
-											<a href="shop-left-sidebar.html">Original</a>,
-											<a href="shop-left-sidebar.html">Mtumba</a>
-										</div>
-										<h3 class="product-title"><a href="single-product.html">Skirts</a></h3>
-										<div class="price-box mb-20">
-											<span class="main-price">Ksh300.00</span>
-											<span class="discounted-price">Ksh300.00</span>
-										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
-										<div class="list-product-icons">
-											<a  data-tooltip="Add to cart"> <span class="icon_cart_alt"></span></a>
-											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
-											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
-										 -->
-										</div>
-									</div>
-									
-								</div>
-							
-							<!--=======  End of Shop list view product  =======-->
-							</div>
 	
 						
 					</div>
@@ -720,13 +157,8 @@
 									<!--=======  pagination-content  =======-->
 									
 									<div class="pagination-content text-center">
-										<ul>
-											<li><a class="active" href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-										</ul>
+										<!-- <ngb-pagination [collectionSize]="content.nbHits" [pageSize]="20" [(page)]="page" (pageChange)="getProducts()"></ngb-pagination> -->
+   
 									</div>
 									
 									<!--=======  End of pagination-content  =======-->
@@ -835,7 +267,7 @@
 										<span class="icon_pin_alt"></span>
 									</div>
 									<div class="contact-info">
-										<p>Address: <span>Nairobi West , Nairobi </span></p>
+										<p>Address: <span>Roysambu , Nairobi </span></p>
 									</div>
 								</div>
 								
@@ -847,7 +279,7 @@
 										<span class="icon_mobile"></span>
 									</div>
 									<div class="contact-info">
-										<p>Phone: <span>+254-722-000-000</span></p>
+										<p>Phone: <span>+254-713-093-910</span></p>
 									</div>
 								</div>
 								
@@ -859,7 +291,7 @@
 										<span class="icon_mail_alt"></span>
 									</div>
 									<div class="contact-info">
-										<p>Email: <span>info@sprucesupport.com</span></p>
+										<p>Email: <span>info@newlooksmtaani.com</span></p>
 									</div>
 								</div>
 								

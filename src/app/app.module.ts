@@ -30,7 +30,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Logger } from './logger.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +60,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
+    NgbModule,
     HttpClientModule
   ],
-  providers: [RestApiService, DataService, AuthGuardService],
+  providers: [RestApiService, DataService, AuthGuardService, Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

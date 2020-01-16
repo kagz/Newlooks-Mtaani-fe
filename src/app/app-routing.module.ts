@@ -23,8 +23,11 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
-  { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
