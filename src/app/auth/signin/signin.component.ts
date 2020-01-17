@@ -51,10 +51,12 @@ export class SigninComponent implements OnInit {
           this.router.navigate(['/myaccount']);
         } else {
           this.data.error(data['message']);
+          // console.log(data)
         }
       }
     } catch (error) {
-      this.data.error(error['message']);
+      this.data.error(error.error.message);
+      // console.log(error.error.message)
     }
     this.btnDisabled = false;
   }

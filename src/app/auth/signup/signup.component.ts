@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
         }
       }
     } catch (error) {
-      this.data.error(error['message']);
+      this.data.error(error.error.message);
     }
     this.btnDisabled = false;
   }
