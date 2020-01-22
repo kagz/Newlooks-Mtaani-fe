@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
     try {
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/v1/users/login',
+          'https://newlooks-api.herokuapp.com/api/v1/users/login',
           {
             email: this.email,
             password: this.password,

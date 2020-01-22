@@ -8,13 +8,13 @@
     <mat-icon>shopping_cart</mat-icon>
     <span>my cart</span>
   </a>
-  <a mat-list-item routerLink="/myaccount" (click)="onToggleClose()">
+  <a *ngIf="data.user" mat-list-item routerLink="/myaccount" (click)="onToggleClose()">
     <mat-icon>settings</mat-icon>
     <span>my account</span>
   </a>
-  <a mat-list-item routerLink="/signin" (click)="onToggleClose()">
+  <a *ngIf="!data.user"  mat-list-item routerLink="/signin" (click)="onToggleClose()">
     <mat-icon>lock_open</mat-icon>
     <span>Signin</span>
   </a>
-  <a mat-list-item routerLink="/signin"(click)="onToggleClose()" ><i class="fa fa-sign-out"></i> Logout</a>
+  <a *ngIf="data.user"  mat-list-item routerLink="/signin"(click)="onToggleClose()" ><i class="fa fa-sign-out"></i> Logout</a>
 </mat-nav-list>

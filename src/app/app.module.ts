@@ -11,7 +11,6 @@ import { FoodAndBeverageComponent } from './food-and-beverage/food-and-beverage.
 
 import { ContactComponent } from './contact/contact.component';
 
-
 import { MyaccountComponent } from './myaccount/myaccount.component';
 
 import { CartComponent } from './cart/cart.component';
@@ -29,9 +28,10 @@ import { DataService } from './data.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Logger } from './logger.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,

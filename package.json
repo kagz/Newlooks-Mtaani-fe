@@ -70,5 +70,9 @@
     "ts-node": "8.2.0",
     "tslint": "5.17.0",
     "typescript": "3.4.5"
+  },
+  "engines": {
+    "node": "^10",
+    "npm": "6.12.1"
   }
 }

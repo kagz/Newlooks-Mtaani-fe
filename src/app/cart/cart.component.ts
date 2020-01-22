@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
 
   quantities = [];
 
+  product: any;
   constructor(
     private data: DataService,
     private rest: RestApiService,
@@ -32,7 +33,7 @@ export class CartComponent implements OnInit {
   get cartTotal () {
     let total = 0;
     this.cartItems.forEach((data, index) => {
-      total += data['price'] * this.quantities[index];
+      total += data['priceDiscount'] * this.quantities[index];
     });
     return total;
   }
@@ -42,6 +43,11 @@ export class CartComponent implements OnInit {
     this.data.removeFromCart(product);
   }
 
+  addToCart () {
+    this.data.addToCart(this.product)
+      ? this.data.success('Product successfully added to cart.')
+      : this.data.error('Product has already been added to cart.');
+  }
   ngOnInit () {
     this.cartItems.forEach(data => {
       this.quantities.push(1);
@@ -62,7 +68,7 @@ export class CartComponent implements OnInit {
 
     //     try {
     //       const data = await this.rest.post(
-    //         'http://localhost:3030/api/payment',
+    //         'https://newlooks-api.herokuapp.com/api/payment',
     //         {
     //           totalPrice: this.cartTotal,
     //           products,
@@ -95,7 +101,11 @@ export class CartComponent implements OnInit {
       return true;
     }
   }
+  saveOrder () { 
 
+
+
+  }
   checkout () {
     // this.btnDisabled = true;
     // try {

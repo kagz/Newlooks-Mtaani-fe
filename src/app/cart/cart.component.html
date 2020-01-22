@@ -4,7 +4,7 @@
           <div class="col">
               <div class="breadcrumb-container">
                   <ul>
-                      <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                      <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
                       <li class="active">Cart</li>
                   </ul>
               </div>
@@ -17,7 +17,7 @@
     <h3 *ngIf="!cartItems.length" class="display-2 text-center mt-5">Cart is Empty please shop</h3>
     <div *ngIf="cartItems.length" class="page-section section mb-50">
       <div class="container">
-          <div class="row" *ngFor="let item of cartItems; let i=index; trackBy: trackByCartItems;">
+          <div class="row" >
               <div class="col-12">
                   <form action="#">				
                       <!--=======  cart table  =======-->
@@ -30,17 +30,17 @@
                                       <th class="pro-title">Product</th>
                                       <th class="pro-price">Price</th>
                                       <th class="pro-quantity">Quantity</th>
-                                      <th class="pro-subtotal">Total</th>
+                                      <!-- <th class="pro-subtotal">Total</th> -->
                                       <th class="pro-remove">Remove</th>
                                   </tr>
                               </thead>
-                              <tbody>
+                              <tbody *ngFor="let item of cartItems; let i=index; trackBy: trackByCartItems;">
                                   <tr>
                                       <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product01.jpg" class="img-fluid" alt="Product"></a></td>
-                                      <td class="pro-title"><a href="#">Shoes fermentum</a></td>
-                                      <td class="pro-price"><span>Ksh29.00</span></td>
-                                      <td class="pro-quantity"><div class="pro-qty"><input type="number"  min="1" max="99" [(ngModel)]="quantities[i]"></div></td> 
-                                      <td class="pro-subtotal"><span>Ksh29.00</span></td>
+                                      <td class="pro-title"><a href="#">{{item.name}}</a></td>
+                                      <td class="pro-price"><span>Ksh{{item.priceDiscount}}</span></td>
+                                      <td class="pro-quantity"><div class="pro-qty"><input type="number"  min="1" max="99"name="quantities" [(ngModel)]="quantities[i]"></div></td> 
+                                      <!-- <td class="pro-subtotal"><span>Ksh{{item.discountedPrice}}</span></td> -->
                                       <td class="pro-remove"><a (click)="removeProduct(i, item)"><i class="fa fa-trash-o"></i></a></td>
                                   </tr>
                               
@@ -68,13 +68,13 @@
                           <div class="cart-summary">
                               <div class="cart-summary-wrap">
                                   <h4>Cart Summary</h4>
-                                  <p>Sub Total <span>Ksh1250.00</span></p>
-                                  <p>Shipping Cost <span>Ksh00.00</span></p>
-                                  <h2>Grand Total <span>Ksh1250.00</span></h2>
+                                  <p>Sub Total <span>Ksh {{cartTotal}}</span></p>
+                                  <!-- <p>Shipping Cost <span>Ksh00.00</span></p> -->
+                                  <h2>Grand Total <span>Ksh {{cartTotal}}</span></h2>
                               </div>
-                              <div class="cart-summary-button">
-                                  <button class="checkout-btn" routerLink="/checkout">Checkout</button>
-                                  <button class="update-btn">Update Cart</button>
+                              <div *ngIf="cartItems.length" class="cart-summary-button">
+                                  <button class="checkout-btn" (click)="saveOrder()">Checkout</button>
+                                  <!-- <button class="update-btn" (click)="updateTotal()">Update Cart</button> -->
                               </div>
                           </div>
                       

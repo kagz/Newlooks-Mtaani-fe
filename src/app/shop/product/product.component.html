@@ -3,16 +3,16 @@
     =            breadcrumb area         =
     =============================================-->
     
-    <div class="breadcrumb-area mb-50">
+    <div *ngIf="product" class="breadcrumb-area mb-50">
       <div class="container">
           <div class="row">
               <div class="col">
                   <div class="breadcrumb-container">
                       <ul>
-                          <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-                          <li><a href="#">Shoes</a></li>
-                          <li><a href="#">Clothes</a></li>
-                          <li class="active">Shoes fermentum</li>
+                          <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                          <li><a href="/shop">Shop</a></li>
+                          <!-- <li><a href="#">Clothes</a></li> -->
+                          <li class="active" >{{product.slug}}</li>
                       </ul>
                   </div>
               </div>
@@ -36,7 +36,7 @@
               <i class="fa fa-spinner fa-spin"></i>
             </h1>
           </div>
-          <div class="single-product-content-container mb-35">
+          <div *ngIf="product" class="single-product-content-container mb-35">
               <div class="row">
                   <div class="col-lg-6 col-md-12 col-xs-12"> 
 
@@ -64,20 +64,20 @@
                   <div class="col-lg-6 col-md-12 col-xs-12">
                       <!-- product quick view description -->
                       <div class="product-feature-details">
-                          <h2 class="product-title mb-15">Kaoreet lobortis sagittis laoreet</h2>
+                          <h2 class="product-title mb-15">{{product.name}}</h2>
 
                           <p class="product-rating">
-                            <!-- <ngb-rating [(rate)]="product.averageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating> -->
+                            <ngb-rating [(rate)]="product.ratingsAverage" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
            
-                              <a href="#">(1 customer review)</a>
+                              <a >({{product.ratingsQuantity}} customer review)</a>
                           </p>
       
                           <h2 class="product-price mb-15"> 
-                              <span class="main-price">Ksh12.90</span> 
-                              <span class="discounted-price"> Ksh10.00</span>
+                              <span class="main-price">Ksh {{product.price}}</span> 
+                              <span class="discounted-price"> Ksh{{product.priceDiscount}}</span>
                           </h2>
       
-                          <p class="product-description mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
+                          <p class="product-description mb-20">{{product.summary}}</p>
 
                       
                           <!-- <div class="size mb-20">
@@ -131,7 +131,7 @@
   =            single product tab         =
   =============================================-->
   
-  <div class="single-product-tab-section mb-35">
+  <div *ngIf="product" class="single-product-tab-section mb-35">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
@@ -148,11 +148,11 @@
                       </nav>
                       <div class="tab-content" id="nav-tabContent">
                           <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                              <p class="product-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque obcaecati tempore reiciendis neque facere! Eos, necessitatibus? Fugit iure veritatis quidem velit quaerat quos qui pariatur dolore facilis, aliquid quae voluptatibus dicta. Quae harum velit hic molestias, eius ab cum quidem voluptates modi maiores laboriosam iusto excepturi ex, recusandae aut, facere earum ad vero aperiam. Minima dolores dignissimos ab ipsam atque placeat sapiente officia debitis nobis porro at quia veritatis, quidem id repudiandae ex tempore non. Enim soluta explicabo atque adipisci itaque.</p>
+                              <p class="product-desc">{{product.summary}}</p>
                           </div>
                           <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
                               <table class="table-data-sheet">
-                                  <tbody>
+                                  <!-- <tbody>
                                       <tr class="odd">
 
                                           <td>Name</td>
@@ -164,32 +164,28 @@
                                           <td>Yellow</td>
                                       </tr>
                                      
-                                  </tbody>
-                              </table>
+                                  </tbody>-->
+                              </table> 
                           </div>
                           <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                               <div class="product-ratting-wrap">
                                   <div class="pro-avg-ratting">
-                                      <h4>4.5 <span>(Overall)</span></h4>
+                                      <h4>{{product.ratingsAverage}}<span>(Overall)</span></h4>
                                      
                                   </div>
                                   
-                                  <div class="rattings-wrapper">
+                                  <div *ngFor="let review of product.reviews" class="rattings-wrapper">
 
                                       <div class="sin-rattings">
                                           <div class="ratting-author">
-                                              <h3>Cristopher Lee</h3>
-                                              <div class="ratting-star">
-                                           <!-- <ngb-rating [(rate)]="product.averageRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating> -->
+                                              <h3>{{review.user.name}}</h3>
+                                              <div >
+                                           <ngb-rating [(rate)]="review.rating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
            
-                                                  <span>(5)</span>
+                                                  <!-- <span>{{review.rating}}</span> -->
                                               </div>
                                           </div>
-                                          <p>enim ipsam voluptatem quia voluptas sit
-                                              aspernatur aut odit aut fugit, sed quia res eos
-                                              qui ratione voluptatem sequi Neque porro
-                                              quisquam est, qui dolorem ipsum quia dolor sit
-                                              amet, consectetur, adipisci veli</p>
+                                          <p>{{review.review}}</p>
                                       </div>
 
                                       
@@ -199,7 +195,8 @@
                                   </div>
                                   <div class="ratting-form-wrapper fix">
                                       <h3>Add your Comments</h3>
-                                      <form action="#">
+                                      <app-message></app-message>
+                                      <form >
                                           <div class="ratting-form row">
                                               <div class="col-12 mb-15">
                                                   <h5>Rating:</h5>
@@ -208,21 +205,20 @@
                   
                                                   </div>
                                               </div>
-                                              <!-- <div class="col-md-6 col-12 mb-15">
-                                                  <label for="name">Name:</label>
-                                                  <input id="name" placeholder="Name" type="text">
+                                              <!-- <div class="col-md-3 col-3 mb-15">
+                                                  <label for="rating">Rating:</label> type="number">
                                               </div>
-                                              <div class="col-md-6 col-12 mb-15">
-                                                  <label for="email">Email:</label>
-                                                  <input id="email" placeholder="Email" type="text">
-                                              </div> -->
+                                             -->
                                               <div class="col-12 mb-15">
                                                   <label for="your-review">Your Review:</label>
-                                                  <textarea name="review" id="your-review"
-                                                      placeholder="Write a review"></textarea>
-                                              </div>
+                                                  <textarea required class="form-control" rows="5" name="review" [(ngModel)]="myReview.review"></textarea>
+                 
+                                             
+                                                    </div>
                                               <div class="col-12">
-                                                  <input value="add review" type="submit">
+                                                <button type="button" class="btn btn-info" (click)="postReview()" [disabled]="btnDisabled">Post Review</button>
+               
+
                                               </div>
                                           </div>
                                       </form>

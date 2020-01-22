@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -9,12 +10,20 @@ export class SidenavListComponent implements OnInit {
 
   @Output() closeSideNavigation = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private data: DataService,
 
-  ngOnInit() {
+  ) {
+
+
   }
 
-  onToggleClose() {
+  ngOnInit () {
+    this.data.getProfile();
+
+  }
+
+  onToggleClose () {
     this.closeSideNavigation.emit();
   }
 

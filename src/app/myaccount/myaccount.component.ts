@@ -34,11 +34,12 @@ export class MyaccountComponent implements OnInit {
 
 
 
+
   }
 
   ngOnInit () {
 
-
+    this.data.getProfile();
 
   }
 

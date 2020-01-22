@@ -10,8 +10,8 @@ import { RestApiService } from 'src/app/rest-api.service';
 })
 export class ProductComponent implements OnInit {
   myReview = {
-    title: '',
-    description: '',
+
+    review: '',
     rating: 0,
   };
   btnDisabled = false;
@@ -23,42 +23,56 @@ export class ProductComponent implements OnInit {
     private data: DataService,
     private rest: RestApiService,
     private router: Router,
-  ) {}
+  ) { }
 
-  ngOnInit() {
+
+  ngOnInit () {
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`http://localhost:3030/api/product/${res['slug']}`)
+        .get(`https://newlooks-api.herokuapp.com/api/v1/products/${res['id']}`)
         .then(data => {
           data
-            ? (this.product = data['product'])
-            : this.router.navigate(['/']);
+
+
+            ? (this.product = data['data'].data)
+            : this.router.navigate(['/shop']);
+
         })
-        .catch(error => this.data.error(error['message']));
+        .catch(error => this.data.error(error.error.message));
     });
   }
 
-  addToCart() {
+  addToCart () {
     this.data.addToCart(this.product)
       ? this.data.success('Product successfully added to cart.')
       : this.data.error('Product has already been added to cart.');
   }
 
-  async postReview() {
+
+  postReview () {
     this.btnDisabled = true;
-    try {
-      const data = await this.rest.post('http://localhost:3030/api/review', {
-        productId: this.product._id,
-        title: this.myReview.title,
-        description: this.myReview.description,
-        rating: this.myReview.rating,
-      });
-      data
-        ? this.data.success(data['message'])
-        : this.data.error(data['message']);
-      this.btnDisabled = false;
-    } catch (error) {
-      this.data.error(error['message']);
-    }
+    this.activatedRoute.params.subscribe(async res => {
+      try {
+
+
+        const data = await this.rest.post(`https://newlooks-api.herokuapp.com/api/v1/products/${res['id']}/reviews`, {
+          // productId: this.product._id,
+
+          review: this.myReview.review,
+          rating: this.myReview.rating,
+        });
+        data
+          ? this.data.success(data['message'])
+          : this.data.error(data['message']);
+        this.btnDisabled = false;
+      } catch (error) {
+        this.data.error(error.error.message);
+      }
+
+    });
+
+
+
   }
+
 }

@@ -14,10 +14,10 @@ export class AuthGuardService implements CanActivate {
     if (localStorage.getItem('token')) {
       return state.url.startsWith('/myaccount')
         ? true
-        : (this.router.navigate(['/']), false);
+        : (this.router.navigate(['/signin']), false);
     } else {
       return state.url.startsWith('/myaccount')
-        ? (this.router.navigate(['/']), false)
+        ? (this.router.navigate(['/signin']), false)
         : true;
     }
   }

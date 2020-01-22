@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Logger } from '../logger.service';
+import { DataService } from '../data.service';
+import { RestApiService } from '../rest-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
+  products: any;
 
-  constructor() { }
+  constructor(private data: DataService, private rest: RestApiService) { }
 
-  ngOnInit () {
+  async ngOnInit () {
+    try {
+      const res = await this.rest.get('https://newlooks-api.herokuapp.com/api/v1/products');
+      //console.log(res['data']);
+
+      res
+        ? (this.products = res['data'].data)
+        : this.data.error('Could not fetch products.');
+      //ng serve console.log('WTF IS WRONG ',this.products);
+    } catch (error) {
+      this.data.error(error);
+    }
   }
-
 }

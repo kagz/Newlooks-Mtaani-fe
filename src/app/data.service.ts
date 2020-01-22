@@ -39,13 +39,15 @@ export class DataService {
     try {
       if (localStorage.getItem('token')) {
         const data = await this.rest.get(
-          'http://localhost:3030/api/v1/users/me',
+          'https://newlooks-api.herokuapp.com/api/v1/users/me',//http://newlooks-api.herokuapp.com//
         );
-        this.user = data;
-        console.log(this.user);
+        console.log('HERE TRYING TO PRINT', data);
+        this.user = data['data'].data;
+
       }
     } catch (e) {
-      this.error(e);
+      console.log('HERE TRYING TO PRINT ERRR', e);
+      // this.error(e);
     }
   }
 

@@ -263,6 +263,27 @@ ul {
   margin: 0;
   padding: 0; }
 
+
+  // some funny stars
+  
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  color: #d3d3d3;
+}
+
+.full {
+  color: gold;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: gold;
+}
+
 /*-- Tab Content & Pane Fix --*/
 .tab-content {
   width: 100%; }

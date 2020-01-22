@@ -4,7 +4,7 @@
       <div class="col">
         <div class="breadcrumb-container">
           <ul>
-            <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
             <li class="active">My Account</li>
           </ul>
         </div>
@@ -28,13 +28,13 @@
 
           <!-- My Account Tab Menu Start -->
           <div class="col-lg-3 col-12">
-            <div class="myaccount-tab-menu nav" role="tablist">
+            <div *ngIf="data.user" class="myaccount-tab-menu nav" role="tablist">
               <a href="#dashboad" class="active" data-toggle="tab"><i class="fa fa-dashboard"></i>
                 Dashboard</a>
 
-              <a href="#myorders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>My Orders</a>
-              <a href="#neworders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>New Orders</a>
-              <a href="#addstock" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>Add Stock</a>
+              <a *ngIf="data.user.role!== 'admin'" href="#myorders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>My Orders</a>
+              <a *ngIf="data.user.role == 'admin'" href="#neworders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>New Orders</a>
+              <a *ngIf="data.user.role == 'admin'" href="#addstock" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i>Add Stock</a>
 
               <!-- <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> View Stock</a> -->
 

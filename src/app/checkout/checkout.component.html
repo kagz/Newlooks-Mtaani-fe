@@ -116,7 +116,7 @@
               
             </div>
             
-            <div class="col-lg-5">
+            <div *ngIf="cartItems.length" class="col-lg-5">
               <div class="row">
                 
                 <!-- Cart Total -->
@@ -128,17 +128,15 @@
 
                     <h4>Product <span>Total</span></h4>
                     
-                    <ul>
-                      <li>Shoes X 01 <span>Ksh25.00</span></li>
-                      <li>Shirts X 02 <span>Ksh50.00</span></li>
-                      <li>Jersey X 01 <span>Ksh29.00</span></li>
-                      <li>Dress X 01 <span>Ksh10.00</span></li>
+                    <ul *ngFor="let item of cartItems; let i=index; " >
+                      <li>{{item.name}} X {{item.quantity}}<span>Ksh {{item.priceDiscount}}</span></li>
+                 
                     </ul>
                     
-                    <p>Sub Total <span>Ksh104.00</span></p>
+                    <p>Sub Total <span>Ksh {{cartTotal}}</span></p>
                     <p>Shipping Fee <span>Ksh00.00</span></p>
                     
-                    <h4>Grand Total <span>Ksh104.00</span></h4>
+                    <h4>Grand Total <span>Ksh{{cartTotal}}</span></h4>
                     
                   </div>
                   

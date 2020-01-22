@@ -105,32 +105,36 @@
 								<!--=======  Grid view product  =======-->
 								
 								<!--=======  End of Grid view product  =======-->
-	
+								<div *ngIf="!products" class="m-auto">
+									<h1 class="text-center display-3 mt-5">
+									  <i class="fa fa-spinner fa-spin"></i>
+									</h1>
+								  </div>
 								<!--=======  Shop list view product  =======-->
 								
-								<div class="gf-product shop-list-view-product">
+								<div *ngFor="let product of products " class="gf-product shop-list-view-product">
 									<div class="image">
-										<a routerLink="/product/{{ product.slug }}">
+										<a routerLink="/product/{{ product._id }}">
 											<span class="onsale">Available!</span>
 											<img src="assets/images/products/product03.jpg" class="img-fluid" alt="">
 										</a>
 										<div class="product-hover-icons">
-											<a routerLink="/product/{{ product.slug }}" data-tooltip="View Bale" > <span class="icon_search"></span> </a>
+											<a routerLink="/product/{{ product._id }}" data-tooltip="View Bale" > <span class="icon_search"></span> </a>
 										</div>
 									</div>
 									<div class="product-content">
 										<div class="product-categories">
-											<a routerLink="/product/{{ product.slug }}">Original</a>,
-											<a routerLink="/product/{{ product.slug }}">Mtumba</a>
+											<a routerLink="/product/{{ product._id }}">Original</a>,
+											<a routerLink="/product/{{ product._id }}">Mtumba</a>
 										</div>
-										<h3 class="product-title"><a routerLink="/product/{{ product.slug }}">chageet</a></h3>
+										<h3 class="product-title"><a routerLink="/product/{{ product._id }}">{{product.name }}</a></h3>
 										<div class="price-box mb-20">
-											<span class="main-price">Ksh400.00</span>
-											<span class="discounted-price">Ksh300.00</span>
+											<span class="main-price">Ksh{{product.price}}</span>
+											<span class="discounted-price">Ksh{{product.priceDiscount}}</span>
 										</div>
-										<p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse tempora magnam dolorem tenetur eos eligendi non temporibus qui enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni.</p>
+										<p class="product-description">{{product.summary}}.</p>
 										<div class="list-product-icons">
-											<a routerLink="/product/{{ product.slug }}" data-tooltip="View Bale"> <span class="icon_search"></span></a>
+											<a routerLink="/product/{{ product._id }}" data-tooltip="View Bale"> <span class="icon_search"></span></a>
 											<!-- <a href="#" data-tooltip="Add to wishlist"> <span class="icon_heart_alt"></span> </a>
 											<a href="#" data-tooltip="Compare"> <span class="arrow_left-right_alt"></span> </a>
 					 -->
@@ -176,7 +180,14 @@
 	
 	<!--=====  End of Shop page container  ======-->
 
-
+	<ng-template #t let-fill="fill">
+		<span *ngIf="fill === 100" class="star full">&#9733;</span>
+		<span *ngIf="fill === 0" class="star">&#9733;</span>
+		<span *ngIf="fill < 100 && fill > 0" class="star">
+		  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+		</span>
+	  </ng-template>
+	  
 
 	<!--=============================================
 	=            Footer         =
