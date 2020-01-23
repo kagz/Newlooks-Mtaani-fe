@@ -62,9 +62,10 @@ export class ProductComponent implements OnInit {
           rating: this.myReview.rating,
         });
         data
-          ? this.data.success(data['message'])
+          ? this.data.success('Review successfully saved.')
           : this.data.error(data['message']);
         this.btnDisabled = false;
+        this.router.navigate(['/shop']);
       } catch (error) {
         this.data.error(error.error.message);
       }

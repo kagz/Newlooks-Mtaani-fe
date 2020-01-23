@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <app-message></app-message>
+       
         <div class="row">
 
           <!-- My Account Tab Menu Start -->
@@ -47,6 +47,7 @@
 
           <!-- My Account Tab Content Start -->
           <div class="col-lg-9 col-12">
+            <app-message></app-message>
             <div class="tab-content" id="myaccountContent">
               <!-- Single Tab Content Start -->
               <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
@@ -62,8 +63,7 @@
                   </div>
 
                   <p *ngIf="data.user"class="mb-0">Welcome to Newlooks Mtaani fam. you now can easily shop &amp; view your
-                    recent orders, manage your shipping and billing addresses and edit your
-                    profile.</p>
+                     orders status, We encourage M-Pesa online payments .<strong>our Till Number 072121</strong> Thank you for chosing us </p>
                 </div>
               </div>
               <!-- Single Tab Content End -->
@@ -198,20 +198,26 @@
                   <div class="card-body">
                     <form>
                       <div class="form-group">
-                        <label class="form-control-label">Title</label>
-                        <input type="text" name="title" class="form-control" [(ngModel)]="product.title">
+                        <label class="form-control-label">Name</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="product.name">
                       </div>
                       <div class="form-group">
                         <label class="form-control-label">Price</label>
                         <input type="number" name="price" class="form-control" [(ngModel)]="product.price">
                       </div>
+
+
                       <div class="form-group">
-                        <label>Category</label>
-                        <!-- <select name="categoryId" [(ngModel)]="product.categoryId" class="custom-select">
-                          <option *ngFor="let category of categories" [value]="category._id">
-                            {{ category.name }}
-                          </option>
-                        </select> -->
+                        <label class="form-control-label">Price Discount</label>
+                        <input type="number" name="priceDiscount" class="form-control" [(ngModel)]="product.priceDiscount">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label">Size(small,medium,large)</label>
+                        <input type="text" name="size" class="form-control" [(ngModel)]="product.size">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label">Short Summary</label>
+                        <input type="text" name="summary" class="form-control" [(ngModel)]="product.summary">
                       </div>
                       <div class="form-group">
                         <label>Description</label>

@@ -24,7 +24,15 @@ export class SignupComponent implements OnInit {
     private rest: RestApiService,
   ) { }
 
-  ngOnInit () { }
+  ngOnInit () {
+
+
+
+    this.data.logOut();
+
+
+
+  }
 
   validate () {
     if (this.name) {

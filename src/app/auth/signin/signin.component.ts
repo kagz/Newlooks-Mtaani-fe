@@ -20,7 +20,12 @@ export class SigninComponent implements OnInit {
     private data: DataService,
   ) { }
 
-  ngOnInit () { }
+  ngOnInit () {
+
+
+    this.data.logOut();
+
+  }
 
   validate () {
     if (this.email) {
