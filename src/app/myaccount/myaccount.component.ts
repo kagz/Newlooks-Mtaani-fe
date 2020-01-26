@@ -4,6 +4,7 @@ import { RestApiService } from '../rest-api.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { Logger } from '../logger.service';
+import { AppConst } from '../app-const';
 
 @Component({
   selector: 'app-myaccount',
@@ -93,7 +94,7 @@ export class MyaccountComponent implements OnInit {
           }
         }
         const data = await this.rest.post(
-          'https://newlooks-api.herokuapp.com/api/v1/products',
+          AppConst.serverPath + '/api/v1/products',
           form
         );
         data

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
 import { Router } from '@angular/router';
+import { AppConst } from '../app-const';
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,7 @@ export class CartComponent implements OnInit {
   quantities = [];
 
   product: any;
+  private serverPath = "https://newlooks-api.herokuapp.com";
   constructor(
     private data: DataService,
     private rest: RestApiService,
@@ -89,11 +91,11 @@ export class CartComponent implements OnInit {
     if (!this.quantities.every(data => data > 0)) {
       this.data.warning('Quantity cannot be less than one.');
     } else if (!localStorage.getItem('token')) {
-      this.router.navigate(['/login']).then(() => {
+      this.router.navigate(['/signin']).then(() => {
         this.data.warning('You need to login before making a purchase.');
       });
-    } else if (!this.data.user['address']) {
-      this.router.navigate(['/profile/address']).then(() => {
+    } else if (!this.data.user) {
+      this.router.navigate(['/signin']).then(() => {
         this.data.warning('You need to login before making a purchase.');
       });
     } else {
@@ -101,7 +103,34 @@ export class CartComponent implements OnInit {
       return true;
     }
   }
-  saveOrder () { 
+  async saveOrder () {
+
+    let products;
+    products = [];
+    this.cartItems.forEach((d, index) => {
+
+      products.push({
+        product: d['_id'],
+        quantity: this.quantities[index],
+        cost: d['priceDiscount'],
+      });
+    });
+
+    try {
+      const data = await this.rest.post(AppConst.serverPath +
+        '/api/v1/orders',
+        {
+          totalPrice: this.cartTotal,
+          products,
+
+        },
+      );
+      data
+        ? (this.data.clearCart(), this.data.success('Order Booked Successful.'))
+        : this.data.error(data['message']);
+    } catch (error) {
+      this.data.error(error.error.message);
+    }
 
 
 

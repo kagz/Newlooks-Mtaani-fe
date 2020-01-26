@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { RestApiService } from 'src/app/rest-api.service';
+import { AppConst } from 'src/app/app-const';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,7 @@ export class ProductComponent implements OnInit {
   btnDisabled = false;
 
   product: any;
-
+  private serverPath = AppConst.serverPath;
   constructor(
     private activatedRoute: ActivatedRoute,
     private data: DataService,
@@ -29,7 +30,7 @@ export class ProductComponent implements OnInit {
   ngOnInit () {
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`https://newlooks-api.herokuapp.com/api/v1/products/${res['id']}`)
+        .get(AppConst.serverPath+`/api/v1/products/${res['id']}`)
         .then(data => {
           data
 
@@ -55,7 +56,7 @@ export class ProductComponent implements OnInit {
       try {
 
 
-        const data = await this.rest.post(`https://newlooks-api.herokuapp.com/api/v1/products/${res['id']}/reviews`, {
+        const data = await this.rest.post(AppConst.serverPath+`/api/v1/products/${res['id']}/reviews`, {
           // productId: this.product._id,
 
           review: this.myReview.review,

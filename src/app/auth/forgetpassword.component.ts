@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
 import { Router } from '@angular/router';
+import { AppConst } from '../app-const';
 
 @Component({
   selector: 'app-forgetpassword',
@@ -25,8 +26,6 @@ export class ForgetpasswordComponent implements OnInit {
 
   ngOnInit () {
 
-    this.data.logOut();
-
 
 
   }
@@ -45,8 +44,8 @@ export class ForgetpasswordComponent implements OnInit {
     this.btnDisabled = true;
     try {
       if (this.validate()) {
-        const data = await this.rest.post(
-          'https://newlooks-api.herokuapp.com/api/v1/users/forgotPassword',
+        const data = await this.rest.post(AppConst.serverPath +
+          '/api/v1/users/forgotPassword',
           {
 
             email: this.email,

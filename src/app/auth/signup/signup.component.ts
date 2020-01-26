@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { RestApiService } from 'src/app/rest-api.service';
+import { AppConst } from 'src/app/app-const';
 
 @Component({
   selector: 'app-signup',
@@ -27,8 +28,6 @@ export class SignupComponent implements OnInit {
   ngOnInit () {
 
 
-
-    this.data.logOut();
 
 
 
@@ -62,8 +61,8 @@ export class SignupComponent implements OnInit {
     this.btnDisabled = true;
     try {
       if (this.validate()) {
-        const data = await this.rest.post(
-          'https://newlooks-api.herokuapp.com/api/v1/users/signup',
+        const data = await this.rest.post(AppConst.serverPath +
+          '/api/v1/users/signup',
           {
             name: this.name,
             email: this.email,

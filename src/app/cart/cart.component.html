@@ -36,7 +36,7 @@
                               </thead>
                               <tbody *ngFor="let item of cartItems; let i=index; trackBy: trackByCartItems;">
                                   <tr>
-                                      <td class="pro-thumbnail"><a href="#"><img src="assets/images/products/product01.jpg" class="img-fluid" alt="Product"></a></td>
+                                      <td class="pro-thumbnail"><a href="#"><img src="{{serverPath}}/img/products/{{item.imageCover}}" class="img-fluid" alt="Product"></a></td>
                                       <td class="pro-title"><a href="#">{{item.name}}</a></td>
                                       <td class="pro-price"><span>Ksh{{item.priceDiscount}}</span></td>
                                       <td class="pro-quantity"><div class="pro-qty"><input type="number"  min="1" max="99"name="quantities" [(ngModel)]="quantities[i]"></div></td> 
@@ -70,7 +70,7 @@
                                   <h4>Cart Summary</h4>
                                   <p>Sub Total <span>Ksh {{cartTotal}}</span></p>
                                   <!-- <p>Shipping Cost <span>Ksh00.00</span></p> -->
-                                  <h2>Grand Total <span>Ksh {{cartTotal}}</span></h2>
+                                  <h2>Grand Total <span>Ksh {{cartTotal }}</span></h2>
                               </div>
                               <div *ngIf="cartItems.length" class="cart-summary-button">
                                   <button class="checkout-btn" (click)="saveOrder()">Checkout</button>
