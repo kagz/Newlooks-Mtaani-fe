@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
   private serverPath = AppConst.serverPath;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private data: DataService,
+    public data: DataService,
     private rest: RestApiService,
     private router: Router,
   ) { }
@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
   ngOnInit () {
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(AppConst.serverPath+`/api/v1/products/${res['id']}`)
+        .get(AppConst.serverPath + `/api/v1/products/${res['id']}`)
         .then(data => {
           data
 
@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
       try {
 
 
-        const data = await this.rest.post(AppConst.serverPath+`/api/v1/products/${res['id']}/reviews`, {
+        const data = await this.rest.post(AppConst.serverPath + `/api/v1/products/${res['id']}/reviews`, {
           // productId: this.product._id,
 
           review: this.myReview.review,

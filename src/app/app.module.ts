@@ -28,9 +28,10 @@ import { DataService } from './data.service';
 import { AuthGuard } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Logger } from './logger.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FlexLayoutModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [RestApiService, DataService, AuthGuard, Logger],
   bootstrap: [AppComponent]
