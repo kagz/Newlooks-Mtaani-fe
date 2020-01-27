@@ -73,8 +73,8 @@
                           </p>
       
                           <h2 class="product-price mb-15"> 
-                              <span class="main-price">Ksh {{product.price}}</span> 
-                              <span class="discounted-price"> Ksh{{product.priceDiscount}}</span>
+                              <span class="main-price">Ksh {{product.price | number}}</span> 
+                              <span class="discounted-price"> Ksh{{product.priceDiscount | number}}</span>
                           </h2>
       
                           <p class="product-description mb-20">{{product.summary}}</p>

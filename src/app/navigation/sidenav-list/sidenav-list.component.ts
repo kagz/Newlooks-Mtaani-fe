@@ -11,7 +11,7 @@ export class SidenavListComponent implements OnInit {
   @Output() closeSideNavigation = new EventEmitter();
 
   constructor(
-    private data: DataService,
+    public data: DataService,
 
   ) {
 

@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate {
         ? true
         : (this.router.navigate(['/signin']), false);
     } else {
-      return state.url.startsWith('/myaccount')
+      return state.url.startsWith('/checkout')
         ? (this.router.navigate(['/signin']), false)
         : true;
     }

@@ -25,7 +25,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { NavtabsComponent } from './navigation/navtabs/navtabs.component';
 import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuard } from './auth-guard.service';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -63,7 +63,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     HttpClientModule
   ],
-  providers: [RestApiService, DataService, AuthGuardService, Logger],
+  providers: [RestApiService, DataService, AuthGuard, Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

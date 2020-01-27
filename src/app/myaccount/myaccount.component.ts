@@ -25,13 +25,13 @@ export class MyaccountComponent implements OnInit {
   };
 
 
-
+  myoders: any;
   categories: any;
   btnDisabled = false;
 
   constructor(
     private logger: Logger,
-    private data: DataService,
+    public data: DataService,
     private rest: RestApiService,
     private router: Router
   ) {
@@ -44,7 +44,7 @@ export class MyaccountComponent implements OnInit {
   ngOnInit () {
 
     this.data.getProfile();
-
+    this.myOrders();
   }
 
   validate (product) {
@@ -109,4 +109,19 @@ export class MyaccountComponent implements OnInit {
     this.btnDisabled = false;
   }
 
+  async myOrders () {
+    try {
+      if (localStorage.getItem('token')) {
+        const data = await this.rest.get(AppConst.serverPath +
+          '/api/v1/orders/me/orders',//http://newlooks-api.herokuapp.com//
+        );
+        //console.log('HERE IS MY ORDER', data['orders'])
+        this.myoders = data['orders'];
+        //console.log('HERE IS MY FUCKIN NET', this.myoders)
+      }
+    } catch (e) {
+
+    }
+
+  }
 }

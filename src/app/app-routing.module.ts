@@ -11,15 +11,22 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { ForgetpasswordComponent } from './auth/forgetpassword.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './shop/product/product.component';
+import { AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'food-and-beverage', component: FoodAndBeverageComponent },
+  //{ path: 'food-and-beverage', component: FoodAndBeverageComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'myaccount', component: MyaccountComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'myaccount', component: MyaccountComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'checkout/:id', component: CheckoutComponent,
+    // canActivate: [AuthGuard]
+  },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
